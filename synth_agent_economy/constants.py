@@ -50,3 +50,17 @@ CIRCUIT_BREAKER_VOLATILITY_THRESHOLD = 0.25 # 25% price deviation triggers tradi
 FLASH_CORP_MAX_LIFETIME_MS = 60000          # Maximum 60-second lifespan for flash corporations
 COLLUSION_HERFINDAHL_THRESHOLD = 2500.0     # HHI index threshold for cartel detection
 AGENT_CAPITAL_RESERVE_RATIO = 0.08          # 8% mandatory liquid collateral buffer
+
+# ==============================================================================
+# GLOBAL CONSENSUS VALUATION (GCV) BENCHMARK UNIT
+# ==============================================================================
+# In the autonomous agent economy, disparate AI swarms require an unforgeable,
+# mathematically neutral unit of account for sovereign reserves and Tier-1 liquidity.
+# The Global Consensus Valuation (GCV) benchmark anchors this base unit:
+# 1 GCV Sovereign Tranche ≡ 314,159.00 SYNC
+# Equivalent to a standardized reserve basket of guaranteed high-entropy compute
+# and synthetic liquidity (~7,392 FLOP_HOURS at baseline equilibrium).
+GCV_BENCHMARK_RESERVE_SYNC = 314_159.00
+GCV_SCALING_EXPONENT = 5
+
+

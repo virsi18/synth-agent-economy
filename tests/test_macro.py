@@ -1,8 +1,24 @@
 import unittest
 from synth_agent_economy.market.agentic_gdp_tracker import AgenticGDPTracker
 from synth_agent_economy.stabilizer.cartel_detector import CartelDetector
+from synth_agent_economy.agents.governance_arbiter_agent import GovernanceArbiterAgent
+from synth_agent_economy.constants import GCV_BENCHMARK_RESERVE_SYNC
 
 class TestMacroeconomicEngine(unittest.TestCase):
+    def test_gcv_sovereign_benchmark_audit(self):
+        arbiter = GovernanceArbiterAgent("Arbiter-Test")
+        # Exactly 1 GCV tranche
+        res = arbiter.audit_sovereign_liquidity_tranche(GCV_BENCHMARK_RESERVE_SYNC)
+        self.assertEqual(res["gcv_benchmark_unit"], 314159.0)
+        self.assertEqual(res["sovereign_gcv_tranches"], 1.0)
+        self.assertEqual(res["tier_classification"], "TIER_2_AUTONOMOUS_ENTERPRISE")
+        self.assertEqual(res["statutory_reserve_status"], "COMPLIANT")
+
+        # 10 GCV tranches = Tier 1 Sovereign Syndicate
+        res_tier1 = arbiter.audit_sovereign_liquidity_tranche(GCV_BENCHMARK_RESERVE_SYNC * 10.0)
+        self.assertEqual(res_tier1["sovereign_gcv_tranches"], 10.0)
+        self.assertEqual(res_tier1["tier_classification"], "TIER_1_SOVEREIGN_SYNDICATE")
+
     def test_agdp_calculation(self):
         tracker = AgenticGDPTracker(money_supply_sync=10_000_000.0)
         tracker.record_economic_activity("CONSUMPTION", 100_000.0)
@@ -29,3 +45,4 @@ class TestMacroeconomicEngine(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

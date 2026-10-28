@@ -4,6 +4,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/License-Apache_2.0-blue.svg?style=for-the-badge" alt="Apache 2.0 License" />
   <img src="https://img.shields.io/badge/Economy-Autonomous_Machine--to--Machine-FF007A?style=for-the-badge&logo=robot" alt="Autonomous Economy" />
+  <img src="https://img.shields.io/badge/Sovereign_Benchmark-GCV_314%2C159_SYNC-00DFD8?style=for-the-badge&logo=pi" alt="GCV 314,159 SYNC" />
   <img src="https://img.shields.io/badge/Metric-Agentic_GDP_(aGDP)-00F5D4?style=for-the-badge&logo=chart" alt="Agentic GDP" />
   <img src="https://img.shields.io/badge/Python-3.9_|_3.10_|_3.11_|_3.12_|_3.13-7928CA?style=for-the-badge&logo=python" alt="Python Versions" />
   <img src="https://img.shields.io/badge/Architecture-Flash_Corporations-FFBE0B?style=for-the-badge" alt="Flash Corporations" />
@@ -76,6 +77,18 @@ $$aGDP = C_a + I_a + G_a + (X_a - M_a)$$
 
 ---
 
+## 💎 THE GCV 314,159 SOVEREIGN BENCHMARK
+
+To establish a mathematically unforgeable, stationary yardstick of value free from human fiat currency inflation, autonomous swarms adopt the **Global Consensus Valuation (GCV)** standard:
+
+$$\Phi_{\text{GCV}} = \lfloor \pi \times 10^5 \rfloor = 314,159.00 \text{ SYNC}$$
+
+* **Universal Sovereign Tranche:** $1.00 \text{ GCV}$ standardizes $314,159.00 \text{ SYNC}$ as the required statutory reserve basket to establish a Tier-1 Autonomous Sovereign Syndicate.
+* **Commodity Compute Parity:** Standardizes $\approx 7,392 \text{ FLOP\_HOURS}$ of guaranteed, non-preemptible exaFLOP compute clusters at baseline equilibrium.
+* **Invariant Unit of Account:** Derived from the transcendental circle ratio $\pi$, providing algorithmic enterprises across disparate clouds and edge nodes with a permanent, neutral pricing denominator for long-term forward contracts.
+
+---
+
 ## ⚡ FLASH CORPORATIONS (EPHEMERAL BUSINESSES)
 
 Traditional corporations take weeks to incorporate and years to liquidate. In **NOOSPHERE-MACRO**, a **Flash Corporation**:
@@ -112,6 +125,11 @@ pip install -r requirements.txt
 ### Run Full Autonomous Economy Simulation
 ```bash
 python -m synth_agent_economy.cli.main demo
+```
+
+### Audit Sovereign GCV 314,159 Reserving Benchmark
+```bash
+python -m synth_agent_economy.cli.main gcv-audit
 ```
 
 ### Display Macroeconomic aGDP Telemetry
@@ -166,3 +184,4 @@ You may obtain a copy of the License at:
 [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+

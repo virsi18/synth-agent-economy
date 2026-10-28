@@ -18,3 +18,4 @@ dependencies = [
 
 [project.scripts]
 synth-agent-economy = "synth_agent_economy.cli.main:main"
+

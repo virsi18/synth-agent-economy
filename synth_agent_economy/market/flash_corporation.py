@@ -17,6 +17,7 @@ limitations under the License.
 import time
 import uuid
 from typing import Dict, Any, List, Optional
+from synth_agent_economy.constants import GCV_BENCHMARK_RESERVE_SYNC
 from synth_agent_economy.agents.capital_allocator_agent import CapitalAllocatorAgent
 from synth_agent_economy.agents.compute_arbitrage_agent import ComputeArbitrageAgent
 from synth_agent_economy.agents.synthetic_producer_agent import SyntheticProducerAgent
@@ -134,7 +135,8 @@ class FlashCorporation:
         self.dissolved_at = time.time()
         lifetime_ms = (self.dissolved_at - self.created_at) * 1000.0
         self.status = "DISSOLVED"
-        self.lifecycle_log.append(f"Dissolved in {lifetime_ms:.1f}ms with {net_profit_dividend:,.2f} SYNC distributed dividends")
+        gcv_tranches = gross_revenue / GCV_BENCHMARK_RESERVE_SYNC
+        self.lifecycle_log.append(f"Dissolved in {lifetime_ms:.1f}ms with {net_profit_dividend:,.2f} SYNC dividends ({gcv_tranches:.4f} GCV Sovereign Tranches)")
 
         return {
             "corp_id": self.corp_id,
@@ -143,5 +145,7 @@ class FlashCorporation:
             "gross_revenue_sync": gross_revenue,
             "repaid_debt_sync": repaid_debt,
             "net_dividends_sync": net_profit_dividend,
+            "gcv_sovereign_tranches": round(gcv_tranches, 4),
             "log": self.lifecycle_log
         }
+

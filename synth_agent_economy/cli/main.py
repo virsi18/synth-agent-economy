@@ -40,7 +40,8 @@ from synth_agent_economy.cli.dashboard import (
     generate_header_panel,
     generate_agents_table,
     generate_flash_corp_panel,
-    generate_hhi_panel
+    generate_hhi_panel,
+    generate_gcv_reserve_panel
 )
 
 console = Console()
@@ -112,7 +113,19 @@ def run_simulation():
     }
     audit = CartelDetector.evaluate_market_collusion("FLOP_HOUR_COMPUTE_MARKET", audit_shares)
     console.print(generate_hhi_panel(audit))
+    console.print()
+
+    # 9. GCV Benchmark Sovereign Reserve Audit
+    gcv_audit = arbiter.audit_sovereign_liquidity_tranche(allocator.balances["SYNC"])
+    console.print(generate_gcv_reserve_panel(gcv_audit))
+
     console.print("\n[bold green]>>> Autonomous Macro-Economic Engine In Nominal Equilibrium. <<<[/bold green]")
+
+def run_gcv_audit():
+    arbiter = GovernanceArbiterAgent(name="Arbiter-Omega-Central")
+    gcv_audit = arbiter.audit_sovereign_liquidity_tranche(2_500_000.0)
+    console.print(BANNER, style="bold magenta")
+    console.print(generate_gcv_reserve_panel(gcv_audit))
 
 def run_agdp_report():
     gdp_tracker = AgenticGDPTracker()
@@ -125,13 +138,16 @@ def run_agdp_report():
 
 def main():
     parser = argparse.ArgumentParser(description="NOOSPHERE Autonomous Agent Macro-Economy Engine")
-    parser.add_argument("command", choices=["demo", "simulate", "agdp"], nargs="?", default="demo")
+    parser.add_argument("command", choices=["demo", "simulate", "agdp", "gcv-audit"], nargs="?", default="demo")
     args = parser.parse_args()
 
     if args.command in ("demo", "simulate"):
         run_simulation()
     elif args.command == "agdp":
         run_agdp_report()
+    elif args.command == "gcv-audit":
+        run_gcv_audit()
 
 if __name__ == "__main__":
     main()
+

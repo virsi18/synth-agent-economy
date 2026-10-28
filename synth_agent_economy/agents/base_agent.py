@@ -75,3 +75,4 @@ class BaseEconomicAgent:
 
     def __repr__(self) -> str:
         return f"<{self.role}:{self.name} [{self.agent_id}] Balance: {self.balances['SYNC']:.2f} SYNC>"
+

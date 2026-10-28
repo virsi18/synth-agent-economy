@@ -77,3 +77,4 @@ class AgenticGDPTracker:
             "synthetic_capital_velocity": velocity,
             "total_recorded_events": len(self.all_recorded_transactions)
         }
+

@@ -145,3 +145,4 @@ class AgenticOrderBook:
             "total_trades": len(self.trade_history),
             "last_price": self.last_clearing_price
         }
+

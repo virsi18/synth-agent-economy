@@ -54,3 +54,4 @@ class ComputeArbitrageAgent(BaseEconomicAgent):
         self.credit("SYNC", revenue, reason=f"Compute lease revenue ({requested_flops} FLOP_HOURS)")
         self.total_compute_leased += requested_flops
         return True
+

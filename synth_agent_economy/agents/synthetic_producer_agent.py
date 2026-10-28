@@ -54,3 +54,4 @@ class SyntheticProducerAgent(BaseEconomicAgent):
         self.credit("SYNTH_DATA", output_data, reason="Synthesized high-entropy dataset")
         self.total_products_manufactured += 1
         return output_data
+

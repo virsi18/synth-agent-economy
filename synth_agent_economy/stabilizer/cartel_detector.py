@@ -64,3 +64,4 @@ class CartelDetector:
             "is_cartel_risk": is_cartel_risk,
             "participating_agents": len(agent_volumes)
         }
+

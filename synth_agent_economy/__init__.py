@@ -16,3 +16,4 @@ limitations under the License.
 
 __version__ = "1.0.0"
 __protocol__ = "NOOSPHERE-MACRO"
+

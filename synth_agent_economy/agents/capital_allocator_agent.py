@@ -78,3 +78,4 @@ class CapitalAllocatorAgent(BaseEconomicAgent):
         self.total_interest_earned += max(0.0, profit)
         loan["is_settled"] = True
         return True
+
